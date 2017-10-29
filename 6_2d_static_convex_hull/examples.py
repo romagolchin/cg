@@ -1,13 +1,13 @@
 example_melkman = []
-example_melkman.append( [
+example_melkman.append([
     [5.0, 0.0],
     [5.0, 1.0],
     [7.0, 3.0],
     [4.0, 4.0],
     [4.5, 3.0],
     [1.0, 7.0]
-            ])
-example_melkman.append( [
+])
+example_melkman.append([
     [1., 1.],
     [3., 3.],
     [4., 1.1],
@@ -29,21 +29,20 @@ example_melkman.append( [
     [1.0, 9.5]
 ])
 
-example_melkman.append( [
+example_melkman.append([
     [1, 3],
-	[3, 3],
-	[5, 3], 
-	[4, 1]
+    [3, 3],
+    [5, 3],
+    [4, 1]
 ])
 
 example_melkman.append([
     [1., 1.],
-	[2., 1.],
-	[2., 2.],
-	[1., 9.],
-	[1.5, 8.],
-	[2., 8.],
-	[9., 9.],
-	[9., 1.]
+    [2., 1.],
+    [2., 2.],
+    [1., 9.],
+    [1.5, 8.],
+    [2., 8.],
+    [9., 9.],
+    [9., 1.]
 ])
-
