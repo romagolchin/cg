@@ -11,9 +11,12 @@ class GrahamVisualiser:
     def __init__(self, points=None, interval=1000):
         self.hull_x = []
         self.hull_y = []
+        self.deleted_x = []
+        self.deleted_y = []
         self.hull = None
         self.start = None
         self.ax = None
+        self.deleted = None
         self.points = points
         self.interval = interval
 
@@ -22,14 +25,17 @@ class GrahamVisualiser:
         return turn(fst, y, x) or dist(x, fst) - dist(y, fst)
 
     def init(self):
-        self.ax.set_xlim(0, 15)
-        self.ax.set_ylim(0, 15)
+        point_xs, point_ys = [p[0] for p in self.points], [p[1] for p in self.points]
+        self.ax.set_xlim(min(point_xs) - 2, max(point_xs) + 2)
+        self.ax.set_ylim(min(point_ys) - 2, max(point_ys) + 2)
         self.hull.set_data(self.hull_x, self.hull_y)
-        return self.hull, self.start
+        self.deleted.set_data(self.deleted_x, self.deleted_y)
+        return self.hull, self.start, self.deleted
 
     def run(self, data):
         self.hull.set_data(self.hull_x, self.hull_y)
-        return self.hull, self.start
+        self.deleted.set_data(self.deleted_x, self.deleted_y)
+        return self.hull, self.start, self.deleted
 
     def grahamscan(self):
         n = len(self.points)  # число точек
@@ -52,9 +58,13 @@ class GrahamVisualiser:
         for i in range(1, n - 1):
             while len(st) >= 2 and turn(st[-2], st[-1], self.points[i]) == TURN_RIGHT:
                 del st[-1]  # pop(S)
-                del self.hull_x[-1]
-                del self.hull_y[-1]
+                self.deleted_x.append(self.hull_x.pop())
+                self.deleted_y.append(self.hull_y.pop())
+                self.deleted_x.append(st[-1][0])
+                self.deleted_y.append(st[-1][1])
                 yield None
+            self.deleted_x.clear()
+            self.deleted_y.clear()
             st.append(self.points[i])  # push(S,P[i])
             self.hull_x.append(self.points[i][0])
             self.hull_y.append(self.points[i][1])
@@ -67,7 +77,8 @@ class GrahamVisualiser:
         fig, self.ax = plt.subplots()
         self.hull, = self.ax.plot([], [], 'o-', color='#00ff00', lw=3)
         self.ax.scatter([p[0] for p in self.points], [p[1] for p in self.points], color='black', lw=1)
-        self.start, = self.ax.plot([], [], 'o', color='blue', lw=4)
+        self.start, = self.ax.plot([], [], 'bo', lw=4)
+        self.deleted, = self.ax.plot([], [], 'ro-', lw=3)
         ani = animation.FuncAnimation(fig, self.run, self.grahamscan, init_func=self.init,
                                       blit=True, repeat=False, interval=self.interval)
         return ani
