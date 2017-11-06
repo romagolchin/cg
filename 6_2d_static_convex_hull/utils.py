@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 from cg.utils import cmp_
 
 TURN_LEFT, TURN_RIGHT, TURN_NONE = (1, -1, 0)
@@ -11,19 +10,13 @@ def turn(p, q, r):
 
 
 def dist(q, p):
-    # считаем расстояние
+    # считаем квадрат расстояния
     dx, dy = q[0] - p[0], q[1] - p[1]
     return dx * dx + dy * dy
 
 
-def plot_melkman(points, ans):
-    xs = [x[0] for x in points]
-    ys = [y[1] for y in points]
-    plt.plot(xs, ys, 'o-', color='black', linewidth=2)
-
-    x = [x[0] for x in ans]
-    y = [x[1] for x in ans]
-    plt.plot(x, y, 'k-', color='#00ff00', linewidth=3)
-    plt.plot(x, y, 'o', color='red', markersize=8)
-    plt.axis([0, 15, -1, 10])
-    plt.show()
+# верно ли, что r имеет меньший угол относительно p чем q или такой же,
+# но удалена на меньшее расстояние от p
+def angle_less(p, q, r):
+    t = turn(p, q, r)
+    return t == TURN_RIGHT or t == TURN_NONE and dist(r, p) < dist(q, p)

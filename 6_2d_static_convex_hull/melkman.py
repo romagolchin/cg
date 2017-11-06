@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 example_melkman = []
 example_melkman.append([
     [5.0, 0.0],
@@ -46,3 +48,20 @@ example_melkman.append([
     [9., 9.],
     [9., 1.]
 ])
+
+
+def plot_melkman(points, ans):
+    plt.axis([0, 15, -1, 10])
+    points_xs = [x[0] for x in points]
+    points_ys = [y[1] for y in points]
+    plt.plot(points_xs, points_ys, 'o-', color='black', linewidth=2)
+
+    ans_xs = [x[0] for x in ans]
+    ans_ys = [x[1] for x in ans]
+    plt.plot(ans_xs, ans_ys, '-', color='#00ff00', linewidth=3)
+    plt.plot(ans_xs, ans_ys, 'o', color='red', markersize=8)
+
+    plt.show()
+
+
+# plot_melkman(example_melkman[0], example_melkman[0])
