@@ -62,6 +62,3 @@ def plot_melkman(points, ans):
     plt.plot(ans_xs, ans_ys, 'o', color='red', markersize=8)
 
     plt.show()
-
-
-# plot_melkman(example_melkman[0], example_melkman[0])
