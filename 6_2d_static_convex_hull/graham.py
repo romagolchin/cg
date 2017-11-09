@@ -4,7 +4,6 @@ import matplotlib.animation as animation
 
 from melkman import *
 from utils import *
-from gen_points import gen
 
 
 class GrahamVisualiser:

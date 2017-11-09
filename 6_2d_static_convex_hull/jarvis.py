@@ -1,5 +1,4 @@
 from utils import *
-from gen_points import gen
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
