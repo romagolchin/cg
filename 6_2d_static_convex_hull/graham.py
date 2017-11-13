@@ -81,6 +81,3 @@ class GrahamVisualiser:
         ani = animation.FuncAnimation(fig, self.run, self.grahamscan, init_func=self.init,
                                       blit=True, repeat=False, interval=self.interval)
         return ani
-
-
-GrahamVisualiser(points=gen()).visualise()

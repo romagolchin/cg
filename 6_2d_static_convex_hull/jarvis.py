@@ -75,7 +75,7 @@ class JarvisVisualiser:
         self.cur_hull, = ax.plot([], [], 'o-', color='#00ff00', lw=3)
         self.edge_candidate, = ax.plot([], [], 'o--', color='#00ff00', lw=3)
         self.cur_edge, = ax.plot(self.cur_edge_x, self.cur_edge_y, 'ok-', lw=3)
-        ax.scatter(point_xs, point_ys, 'ok')
+        ax.plot(point_xs, point_ys, 'ok')
         ani = animation.FuncAnimation(fig, self.run, self.convex_hull, init_func=self.init, blit=True, repeat=False,
                                       interval=self.interval)
         return ani
