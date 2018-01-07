@@ -28,11 +28,12 @@ def angle_less(p, q, r):
     return t == TURN_RIGHT or t == TURN_NONE and dist(r, p) < dist(q, p)
 
 
-def gen(n=7, max_coord=10):
+def gen(n=10, max_coord=100):
     pts = set()
-    for i in range(n):
+    for i in range(2 * n):
         pts.add((rnd.randint(0, max_coord) + 1, rnd.randint(0, max_coord) + 1))
-    return list(map(lambda pt: [pt[0], pt[1]], list(pts)))
+    res = list(map(lambda pt: [pt[0], pt[1]], list(pts)))
+    return res[:min(len(res), n)]
 
 
 def is_convex(pts):

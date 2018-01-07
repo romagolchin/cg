@@ -4,7 +4,7 @@ import matplotlib.animation as animation
 
 
 class JarvisVisualiser:
-    def __init__(self, ps, interval):
+    def __init__(self, ps, interval=1000):
         self.interval = interval
         self.start = None
         self.cur_hull = None
