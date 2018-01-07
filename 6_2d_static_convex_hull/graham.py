@@ -2,7 +2,6 @@ import functools as fc
 
 import matplotlib.animation as animation
 
-from melkman import *
 from utils import *
 
 
@@ -79,5 +78,7 @@ class GrahamVisualiser:
         self.start, = self.ax.plot([], [], 'bo', lw=4)
         self.deleted, = self.ax.plot([], [], 'ro-', lw=3)
         ani = animation.FuncAnimation(fig, self.run, self.grahamscan, init_func=self.init,
-                                      blit=True, repeat=False, interval=self.interval)
+                                      blit=True, repeat=False, interval=self.interval, save_count=1000)
         return ani
+
+

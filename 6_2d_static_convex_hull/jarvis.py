@@ -77,5 +77,5 @@ class JarvisVisualiser:
         self.cur_edge, = ax.plot(self.cur_edge_x, self.cur_edge_y, 'ok-', lw=3)
         ax.plot(point_xs, point_ys, 'ok')
         ani = animation.FuncAnimation(fig, self.run, self.convex_hull, init_func=self.init, blit=True, repeat=False,
-                                      interval=self.interval)
+                                      interval=self.interval, save_count=1000)
         return ani
