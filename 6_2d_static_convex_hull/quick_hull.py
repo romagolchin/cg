@@ -14,26 +14,21 @@ class QuickHullVisualiser:
         self.data_main_edge = [[], []]
         self.data_cur_edge = [[], []]
         self.data_edge_stack = [[], []]
-        self.data_hull_edges = [[], []]
         self.data_hull = [[], []]
 
     def init(self):
         return self.run(None)
 
     def run(self, data):
-        # self.main_edge.set_data(*self.data_main_edge)
         self.cur_edge.set_data(*self.data_cur_edge)
         self.edge_stack.set_data(*self.data_edge_stack)
-        self.hull_edges.set_data(*self.data_hull_edges)
         self.hull.set_data(*self.data_hull)
-        return self.main_edge, self.cur_edge, self.edge_stack, self.hull_edges, self.hull
+        return self.main_edge, self.cur_edge, self.edge_stack, self.hull
 
     def get_hull_points(self):
         min_pt, max_pt = QuickHullVisualiser.get_min_max_x(self.points)
-        self.data_hull[0].extend([min_pt[0], max_pt[0]])
-        self.data_hull[1].extend([min_pt[1], max_pt[1]])
-        yield None
-        self.data_main_edge = [[min_pt[0], max_pt[0]], [min_pt[1], max_pt[1]]]
+        self.data_hull[0].append(min_pt[0])
+        self.data_hull[1].append(min_pt[1])
         yield None
         hull_pts = None
         for pts in self.quick_hull(self.points, min_pt, max_pt):
@@ -46,12 +41,7 @@ class QuickHullVisualiser:
                 yield pts
             else:
                 hull_pts += pts
-                self.data_hull_edges[0] = [p[0] for p in hull_pts] + [hull_pts[0][0]]
-                self.data_hull_edges[1] = [p[1] for p in hull_pts] + [hull_pts[0][1]]
                 yield hull_pts
-                # self.data_hull[0].append(self.data_hull[0][0])
-                # self.data_hull[1].append(self.data_hull[1][0])
-                # yield None
 
     def quick_hull(self, points, min_pt, max_pt):
         self.data_cur_edge = [[min_pt[0], max_pt[0]], [min_pt[1], max_pt[1]]]
@@ -59,11 +49,10 @@ class QuickHullVisualiser:
         left_of_line_pts = QuickHullVisualiser.get_points_left_of_line(min_pt, max_pt, points)
         pt_c = QuickHullVisualiser.point_max_from_line(min_pt, max_pt, left_of_line_pts)
         if pt_c is None:
+            self.data_hull[0].append(max_pt[0])
+            self.data_hull[1].append(max_pt[1])
             yield [max_pt]
         else:
-            self.data_hull[0].append(pt_c[0])
-            self.data_hull[1].append(pt_c[1])
-            yield None
             self.data_edge_stack[0] += self.data_cur_edge[0]
             self.data_edge_stack[1] += self.data_cur_edge[1]
             yield None
@@ -139,16 +128,19 @@ class QuickHullVisualiser:
     def visualise(self):
         fig, ax = plt.subplots()
         point_xs, point_ys = [p[0] for p in self.points], [p[1] for p in self.points]
-        ax.set_xlim(min(point_xs) - 2, max(point_xs) + 2)
-        ax.set_ylim(min(point_ys) - 2, max(point_ys) + 2)
+        dx = max(point_xs) - min(point_xs)
+        dy = max(point_ys) - min(point_ys)
+        relative_margin = 0.1
+        ax.set_xlim(min(point_xs) - relative_margin * dx, max(point_xs) + relative_margin * dx)
+        ax.set_ylim(min(point_ys) - relative_margin * dy, max(point_ys) + relative_margin * dy)
         ax.scatter(point_xs, point_ys, color='black', lw=1)
         self.main_edge, = ax.plot([], [], 'r-', lw=3)
         self.cur_edge, = ax.plot([], [], 'k-', lw=3)
         self.edge_stack, = ax.plot([], [], color='#00ff00', lw=1)
-        self.hull_edges, = ax.plot([], [], 'go-', lw=3, ms=5)
-        self.hull, = ax.plot([], [], 'go', lw=0, ms=5)
+        self.hull, = ax.plot([], [], 'go-', lw=3, ms=5)
         ani = animation.FuncAnimation(fig, self.run, self.get_hull_points, init_func=self.init,
                                       interval=self.interval, blit=True, repeat=False, save_count=1000)
+        # plt.show()
         return ani
 
-
+# QuickHullVisualiser(gen(n=30, max_coord=1000), 2000).visualise()
