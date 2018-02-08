@@ -11914,11 +11914,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1044;&#1078;&#1072;&#1088;&#1074;&#1080;&#1089;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084; &#1044;&#1078;&#1072;&#1088;&#1074;&#1080;&#1089;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1044;&#1078;&#1072;&#1088;&#1074;&#1080;&#1089;&#1072;">&#182;</a></h2><ul>
-<li>"Алгоритм заворачивания подарка" </li>
-<li>Ищем выпуклую оболочку против часовой стрелки, начиная с самой левой точки.</li>
-</ul>
-
+<h2 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1044;&#1078;&#1072;&#1088;&#1074;&#1080;&#1089;&#1072;-(&quot;&#1079;&#1072;&#1074;&#1086;&#1088;&#1072;&#1095;&#1080;&#1074;&#1072;&#1085;&#1080;&#1103;-&#1087;&#1086;&#1076;&#1072;&#1088;&#1082;&#1072;&quot;)">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084; &#1044;&#1078;&#1072;&#1088;&#1074;&#1080;&#1089;&#1072; ("&#1079;&#1072;&#1074;&#1086;&#1088;&#1072;&#1095;&#1080;&#1074;&#1072;&#1085;&#1080;&#1103; &#1087;&#1086;&#1076;&#1072;&#1088;&#1082;&#1072;")<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1044;&#1078;&#1072;&#1088;&#1074;&#1080;&#1089;&#1072;-(&quot;&#1079;&#1072;&#1074;&#1086;&#1088;&#1072;&#1095;&#1080;&#1074;&#1072;&#1085;&#1080;&#1103;-&#1087;&#1086;&#1076;&#1072;&#1088;&#1082;&#1072;&quot;)">&#182;</a></h2>
 </div>
 </div>
 </div><aside class="notes">
@@ -11928,8 +11924,10 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;">&#182;</a></h3><ol>
-<li>Берем самую левую точку $p_0$, если таких несколько &mdash; самую нижнюю из них.</li>
-<li>За $O(n)$ перебираем все точки, берем точку с минимальным полярным углом относительно $p_0$, если таких несколько, берем ближайшую к $p_0$.</li>
+<li><p>Берем самую левую точку $p_0$, если таких несколько &mdash; самую нижнюю.</p>
+</li>
+<li><p>Берем точку с минимальным полярным углом относительно $p_0$, если таких несколько &mdash; ближайшую к $p_0$.</p>
+</li>
 <li>Добавляем выбранную точку в оболочку, проделываем то же самое с ней и т. д.</li>
 <li>Если в какой-то момент найденная на шаге 2 точка совпала с $p_0$, то останавливаемся.</li>
 </ol>
@@ -11941,7 +11939,7 @@ a.anchor-link {
 </aside></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">utils</span> <span class="k">import</span> <span class="o">*</span>
@@ -11964,7 +11962,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">convex_hull</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
@@ -11989,51 +11987,71 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3><ul>
-<li>Пусть осталась точка $P$, не лежащая внутри полученной оболочки</li>
-</ul>
+<h3 id="&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3><p><img src="images/jarvis_proof.svg" alt=""></p>
 
 </div>
 </div>
-</div><div class="fragment">
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Значит она лежит справа от некоторого ребра $AB$</li>
+<li>Пусть осталась точка $p$, не лежащая внутри полученной оболочки</li>
 </ul>
 
 </div>
 </div>
-</div></div><div class="fragment">
+</div>
+</aside><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Тогда $P$ меньше по повороту относительно $A$, чем $B$</li>
+<li>$\Rightarrow$ она лежит справа от некоторого ребра $ab$</li>
 </ul>
 
 </div>
 </div>
-</div></div><div class="fragment">
+</div>
+</aside><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Значит, мы должны были выбрать $P$, а не $B$, для построения очередного ребра оболочки, когда рассматривали точку $A$. Противоречие.</li>
+<li>$p$ меньше по повороту относительно $a$, чем $b$</li>
 </ul>
 
 </div>
 </div>
-</div></div></section><section>
+</div>
+</aside><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3><p>Добавление каждой точки в ответ занимает $O(n)$ времени, всего точек будет $k$, поэтому итоговая сложность $O(nk)$. В худшем случае, когда оболочка состоит из всех точек сложность $O(n^2)$.</p>
+<ul>
+<li>$\Rightarrow$ мы должны были выбрать $p$, а не $b$, для построения очередного ребра, когда рассматривали $a$. Противоречие.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</aside></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3><ul>
+<li>$O(nk)$</li>
+<li>$O(n^2)$ в худшем случае</li>
+</ul>
 
 </div>
 </div>
@@ -12045,7 +12063,8 @@ a.anchor-link {
 <h2 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1043;&#1088;&#1101;&#1093;&#1077;&#1084;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084; &#1043;&#1088;&#1101;&#1093;&#1077;&#1084;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1043;&#1088;&#1101;&#1093;&#1077;&#1084;&#1072;">&#182;</a></h2>
 </div>
 </div>
-</div></section><section>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12054,10 +12073,38 @@ a.anchor-link {
 <li>Находим самую нижнюю точку $p_0$ (если таких несколько, берем самую правую), добавляем в ответ.</li>
 <li>Сортируем остальные точки по полярному углу относительно $p_0$ (при равенстве углов &mdash; по расстоянию).</li>
 <li>Добавляем в ответ $p_1$ — первую из отсортированных точек.</li>
-<li>Берем следующую точку $t$. Пусть две последних точки в текущей оболочке &mdash; $h_i$ и $h_{i-1}$ Пока $h_i, h_{i-1}, t$ образуют не правый поворот, удаляем $h_i$.</li>
-<li>Добавляем в оболочку $t$.</li>
+<li>Берем очередную точку $p_{i+1}$. Пусть две последних точки в текущей оболочке &mdash; $h_{l-1}$ и $h_{l-2}$. Пока $h_{l-1}, h_{l-2}, p_{i+1}$ образуют не правый поворот, удаляем $h_i$.</li>
+<li>Добавляем в оболочку $p_{i+1}$.</li>
 <li>Делаем п.4 и 5, пока не закончатся точки.</li>
 </ol>
+
+</div>
+</div>
+</div>
+</aside></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="images/graham_p0.svg" alt=""></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="images/graham_sort.svg" alt=""></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="images/graham_add_vertex.svg" alt=""></p>
 
 </div>
 </div>
@@ -12080,11 +12127,43 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3><p>Сортировка точек занимает $O(n \log n)$ времени. При обходе каждая точка добавляется в ответ не более одного раза, поэтому сложность этой части — $O(n)$. Суммарное время — $O(n \log n)$.</p>
+<h3 id="&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Сортировка: $O(n \log n)$</li>
+</ul>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>При обходе точка добавляется / удаляется не более одного раза $\Rightarrow$ $O(n)$</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Суммарное время — $O(n \log n)$</li>
+</ul>
+
+</div>
+</div>
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12093,6 +12172,34 @@ a.anchor-link {
 </div>
 </div>
 </div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="images/andrew_init.svg" alt=""></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="images/andrew_lower_hull.svg" alt=""></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="images/andrew_final.svg" alt=""></p>
+
+</div>
+</div>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12106,18 +12213,38 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div>
+</aside></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3><p>Грэхем корректен, а значит, верхняя и нижняя оболочки будут корректны. Тогда и вся оболочка
-корректна.</p>
-<h3 id="&#1040;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1072;">&#1040;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1072;">&#182;</a></h3><p>Ровно такая же, как у Грэхема. Также можно отметить тот факт, что Эндрю в целом работает быстрее чем Грэхем, так как использует всего $O(n)$ поворотов (повороты не нужны при сортировке), в то время как Грэхем использует $O(n \log n)$ поворотов.</p>
+<h3 id="&#1040;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1072;">&#1040;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1072;">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$O(n \log n)$</li>
+</ul>
 
 </div>
 </div>
-</div></section><section>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$O(n) $ поворотов</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12128,7 +12255,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">utils</span> <span class="k">import</span> <span class="o">*</span>
@@ -12159,24 +12286,48 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1063;&#1077;&#1085;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084; &#1063;&#1077;&#1085;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1063;&#1077;&#1085;&#1072;">&#182;</a></h2><ul>
-<li>Недостатком Грэхема является необходимость сортировки всех точек по полярному углу, что занимает достаточно много времени $O(n \log n)$</li>
-<li>Джарвис требует перебора всех точек для каждой из $k$ точек оболочки, что в худшем случае занимает $O(n^2)$</li>
+<h2 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1063;&#1077;&#1085;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084; &#1063;&#1077;&#1085;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1063;&#1077;&#1085;&#1072;">&#182;</a></h2>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Недостаток Грэхема: сортировка</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Недостаток Джарвиса: перебор всех точек</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
 <li>Скомбинируем эти алгоритмы &mdash; получим асимптотику $O(n \log k)$</li>
 </ul>
 
 </div>
 </div>
-</div></section><section>
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#1054;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077;">&#1054;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1054;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Допустим, что $k$ нам известно.</p>
-<ol>
-<li>Разбиваем все множество на произвольные группы по $k$ штук в каждой. Всего групп $r = n / k$.</li>
-<li>Для каждой группы запускаем Грэхема.</li>
-</ol>
+<h3 id="&#1054;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077;">&#1054;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1054;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Допустим, что $k$ нам известно</p>
 
 </div>
 </div>
@@ -12185,21 +12336,9 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Время — $O(r k \log k) = O(n \log k)$</p>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li>Берем лексикографически минимальную точку. Начиная с нее ищем выпуклую оболочку Джарвисом, но перебираем не все точки, а по одной из каждой группы. <ul>
-<li>На каждом шаге находим правую касательную к оболочке текущей группы и берем точку касания</li>
+<ul>
+<li>Разбиваем на группы по $k$, $r = n/k$</li>
 </ul>
-</li>
-</ol>
 
 </div>
 </div>
@@ -12208,7 +12347,24 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Для каждой группы запускаем Грэхема</p>
+<p>Время — $O (rk \log k) = O(n \log k)$</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Запускаем Джарвиса, но перебираем по одной точке из группы</p>
 <p>Время &mdash; $O(k r \log k) = O(n \log k)$</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -12226,11 +12382,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#1053;&#1072;&#1093;&#1086;&#1078;&#1076;&#1077;&#1085;&#1080;&#1077;-$k$">&#1053;&#1072;&#1093;&#1086;&#1078;&#1076;&#1077;&#1085;&#1080;&#1077; $k$<a class="anchor-link" href="#&#1053;&#1072;&#1093;&#1086;&#1078;&#1076;&#1077;&#1085;&#1080;&#1077;-$k$">&#182;</a></h3><ul>
-<li>Положим m = 2</li>
-<li>Джарвис не завершился за $m$ шагов $ \Rightarrow m &lt; k \Rightarrow m' = m^2$ </li>
-<li>Общее время алгоритма &mdash; $\sum_{t=0}^{\lfloor{\log\log k}\rfloor} O\left(n \log(2^{2^t})\right) = O(n) \sum_{t=0}^{\lfloor{\log\log k}\rfloor} 2^t = O\left(n \cdot 2^{1+\lfloor{\log\log k}\rfloor}\right) = O(n \log k)$.</li>
-</ul>
+<p><img src="images/intersecting_chan.svg" alt="Пример"></p>
 
 </div>
 </div>
@@ -12239,11 +12391,35 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="images/chan.png" alt="Пример"></p>
+<h3 id="&#1053;&#1072;&#1093;&#1086;&#1078;&#1076;&#1077;&#1085;&#1080;&#1077;-$k$">&#1053;&#1072;&#1093;&#1086;&#1078;&#1076;&#1077;&#1085;&#1080;&#1077; $k$<a class="anchor-link" href="#&#1053;&#1072;&#1093;&#1086;&#1078;&#1076;&#1077;&#1085;&#1080;&#1077;-$k$">&#182;</a></h3><ul>
+<li>$m_0 = 2$</li>
+</ul>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Джарвис не завершился за $m_i$ шагов $ \Rightarrow m_i &lt; k \Rightarrow m_{i+1} = m_i^2$ </li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$\sum_{t=0}^{\lfloor{\log\log k}\rfloor} O\left(n \log(2^{2^t})\right) = O(n) \sum_{t=0}^{\lfloor{\log\log k}\rfloor} 2^t = O\left(n \cdot 2^{1+\lfloor{\log\log k}\rfloor}\right) = O(n \log k)$.</li>
+</ul>
+
+</div>
+</div>
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12251,7 +12427,8 @@ a.anchor-link {
 <h2 id="QuickHull">QuickHull<a class="anchor-link" href="#QuickHull">&#182;</a></h2>
 </div>
 </div>
-</div></section><section>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12268,7 +12445,8 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div>
+</aside></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12282,11 +12460,16 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3><p>Выпуклая оболочка всего множества является объединением выпуклых оболочек для верхнего и нижнего множества. Докажем, что алгоритм верно строит оболочку для верхнего множества, для нижнего рассуждения аналогичны. Точки $p_0$ и $p_1$ принадлежат оболочке.</p>
+<h3 id="&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3><ul>
+<li>Достаточно доказать для верхней оболочки</li>
+<li>Все точки построенной оболочки являются точками истинной оболочки</li>
+</ul>
+<p><img src="images/qhull_proof.svg" alt=""></p>
 
 </div>
 </div>
-</div></section><section>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12298,7 +12481,9 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div>
+</aside><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12311,16 +12496,61 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+</aside></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3><ul>
+<li>Все точки истинной оболочки принадлежат построенной оболочке 
+<img src="images/qhull_proof_2.svg" alt=""></li>
+</ul>
+
+</div>
+</div>
 </div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3><p>Пусть время, необходимое для нахождения оболочки над некой прямой и множеством точек $S$ есть $T(S)$ Тогда $T(S) = O(\left\vert{S}\right\vert) + T(A) + T(B)$, где $A, B \subset S$ &mdash; множества над полученными прямыми. Отсюда видно, что в худшем случае, алгоритм тратит $O(n^2)$. На рандомных же данных это число равно $O(n \log n)$.</p>
+<h3 id="&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1057;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$T(S) = O(\left\vert{S}\right\vert) + T(A) + T(B)$, где $A, B \subset S$</li>
+</ul>
 
 </div>
 </div>
-</div></section><section><div align="middle">
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$O(n^2)$ в худшем случае</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$O(n \log n)$ на случайных данных</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section><div align="middle">
 <video width="80%" controls>
       <source src="videos/quick_hull.mp4" type="video/mp4">
 </video></div></section></section><section><section>
@@ -12328,8 +12558,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#1054;&#1073;&#1086;&#1083;&#1086;&#1095;&#1082;&#1072;-&#1084;&#1085;&#1086;&#1075;&#1086;&#1091;&#1075;&#1086;&#1083;&#1100;&#1085;&#1080;&#1082;&#1072;">&#1054;&#1073;&#1086;&#1083;&#1086;&#1095;&#1082;&#1072; &#1084;&#1085;&#1086;&#1075;&#1086;&#1091;&#1075;&#1086;&#1083;&#1100;&#1085;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1054;&#1073;&#1086;&#1083;&#1086;&#1095;&#1082;&#1072;-&#1084;&#1085;&#1086;&#1075;&#1086;&#1091;&#1075;&#1086;&#1083;&#1100;&#1085;&#1080;&#1082;&#1072;">&#182;</a></h2><p>Дан многоугольник без самопересечений. Хотим найти для него выпуклую оболочку за линию.</p>
-
+<h2 id="&#1054;&#1073;&#1086;&#1083;&#1086;&#1095;&#1082;&#1072;-&#1087;&#1088;&#1086;&#1089;&#1090;&#1086;&#1075;&#1086;-&#1084;&#1085;&#1086;&#1075;&#1086;&#1091;&#1075;&#1086;&#1083;&#1100;&#1085;&#1080;&#1082;&#1072;">&#1054;&#1073;&#1086;&#1083;&#1086;&#1095;&#1082;&#1072; &#1087;&#1088;&#1086;&#1089;&#1090;&#1086;&#1075;&#1086; &#1084;&#1085;&#1086;&#1075;&#1086;&#1091;&#1075;&#1086;&#1083;&#1100;&#1085;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1054;&#1073;&#1086;&#1083;&#1086;&#1095;&#1082;&#1072;-&#1087;&#1088;&#1086;&#1089;&#1090;&#1086;&#1075;&#1086;-&#1084;&#1085;&#1086;&#1075;&#1086;&#1091;&#1075;&#1086;&#1083;&#1100;&#1085;&#1080;&#1082;&#1072;">&#182;</a></h2>
 </div>
 </div>
 </div></section><section>
@@ -12337,23 +12566,62 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#1054;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077;">&#1054;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1054;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Сделаем обход Грэхема по многоугольнику, начиная с самой левой точки. Это займет $O(n)$ времени.</p>
-
+<h3 id="&#1054;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077;">&#1054;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1054;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3>
 </div>
 </div>
-</div></section><section>
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3><p>Не всегда является правдой то, что стек после $k$-ой итерации представляет собой список вершин
+<ul>
+<li>Обход Грэхема по многоугольнику, начиная с самой левой точки</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$O(n)$ времени</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3>
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Не всегда верно, что стек после $k$-ой итерации представляет собой список вершин
 корректной выпуклой оболочки для $k − 1$ вершин &mdash; очередная вершина многоугольника может повернуть сильно назад, и после исключения неправильно повернутых вершин оболочка может перестать их
-заключать.
-<img src="images/polygon_hull_bad.svg" alt=""></p>
+заключать.</p>
 
 </div>
 </div>
-</div></section><section>
+</div>
+</aside><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="images/polygon_hull_bad.svg" alt="" style="width: 1500px;"/></p>
+
+</div>
+</div>
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12375,9 +12643,7 @@ $\triangleleft$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1054;&#1073;&#1086;&#1083;&#1086;&#1095;&#1082;&#1072;-&#1087;&#1086;&#1083;&#1080;&#1083;&#1080;&#1085;&#1080;&#1080;">&#1054;&#1073;&#1086;&#1083;&#1086;&#1095;&#1082;&#1072; &#1087;&#1086;&#1083;&#1080;&#1083;&#1080;&#1085;&#1080;&#1080;<a class="anchor-link" href="#&#1054;&#1073;&#1086;&#1083;&#1086;&#1095;&#1082;&#1072;-&#1087;&#1086;&#1083;&#1080;&#1083;&#1080;&#1085;&#1080;&#1080;">&#182;</a></h1><p>Простой полилинией называется ломаная не имеющая самопересечений.
-Далее мы научимся строить выпуклую оболочку полилинии за $O(n)$</p>
-
+<h1 id="&#1054;&#1073;&#1086;&#1083;&#1086;&#1095;&#1082;&#1072;-&#1087;&#1088;&#1086;&#1089;&#1090;&#1086;&#1081;-&#1087;&#1086;&#1083;&#1080;&#1083;&#1080;&#1085;&#1080;&#1080;">&#1054;&#1073;&#1086;&#1083;&#1086;&#1095;&#1082;&#1072; &#1087;&#1088;&#1086;&#1089;&#1090;&#1086;&#1081; &#1087;&#1086;&#1083;&#1080;&#1083;&#1080;&#1085;&#1080;&#1080;<a class="anchor-link" href="#&#1054;&#1073;&#1086;&#1083;&#1086;&#1095;&#1082;&#1072;-&#1087;&#1088;&#1086;&#1089;&#1090;&#1086;&#1081;-&#1087;&#1086;&#1083;&#1080;&#1083;&#1080;&#1085;&#1080;&#1080;">&#182;</a></h1>
 </div>
 </div>
 </div></section><section>
@@ -12394,12 +12660,43 @@ $\triangleleft$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1052;&#1077;&#1083;&#1100;&#1082;&#1084;&#1072;&#1085;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084; &#1052;&#1077;&#1083;&#1100;&#1082;&#1084;&#1072;&#1085;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1052;&#1077;&#1083;&#1100;&#1082;&#1084;&#1072;&#1085;&#1072;">&#182;</a></h2><p>Заведем дек, в котором будут поддерживаться 2 инварианта:</p>
-<ol>
-<li>Вершины в деке – это вершины корректной выпуклой оболочки для всех рассмотренных вершин.</li>
+<h2 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1052;&#1077;&#1083;&#1100;&#1082;&#1084;&#1072;&#1085;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084; &#1052;&#1077;&#1083;&#1100;&#1082;&#1084;&#1072;&#1085;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1052;&#1077;&#1083;&#1100;&#1082;&#1084;&#1072;&#1085;&#1072;">&#182;</a></h2>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Инварианты:</p>
+<ul>
+<li>Вершины в деке – это вершины корректной выпуклой оболочки для всех рассмотренных вершин</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
 <li>Последняя рассмотренная вершина лежит спереди и сзади дека (если она принадлежит текущей
-оболочке).</li>
-</ol>
+оболочке)</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>При добавлении $p_9$ возможны случаи:
+<img src="images/polyline_in.svg" alt="Пример"></p>
+<ul>
+<li>Ничего не делаем</li>
+</ul>
 
 </div>
 </div>
@@ -12408,10 +12705,10 @@ $\triangleleft$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Пусть дана полилиния $P={p_1, p_2, \dots, p_9, \dots}$.
-Пускай построили оболочку для вершин $p_1, p_2,\dots, p_8$. При добавлении очередной вершины $p_9$ возможны случаи:</p>
-<p><img src="images/polyline_in.svg" alt="Пример">
-Ничего не делаем</p>
+<p><img src="images/polyline_del_begin.svg" alt="Пример"></p>
+<ul>
+<li>Удаляем из начала дека</li>
+</ul>
 
 </div>
 </div>
@@ -12420,8 +12717,10 @@ $\triangleleft$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="images/polyline_del_begin.svg" alt="Пример">
-Удаляем из начала дека</p>
+<p><img src="images/polyline_del_end.svg" alt="Пример"></p>
+<ul>
+<li>Удаляем с конца</li>
+</ul>
 
 </div>
 </div>
@@ -12430,22 +12729,15 @@ $\triangleleft$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="images/polyline_del_end.svg" alt="Пример">
-Удаляем с конца</p>
+<p><img src="images/polyline_del_both.svg" alt="Пример"></p>
+<ul>
+<li>Удаляем с обоих концов</li>
+</ul>
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="images/polyline_del_both.svg" alt="Пример">
-Удаляем с обоих концов</p>
+</div><aside class="notes">
 
-</div>
-</div>
-</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12460,7 +12752,9 @@ $\triangleleft$</p>
 
 </div>
 </div>
-</div></section><section>
+</div>
+</aside><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12470,7 +12764,17 @@ $\triangleleft$</p>
 <li>Заметим, что добавляемая точка не может "спрятаться" от текущей головной вершины позади всей оболочки
 из-за несамопересекаемости полилинии.</li>
 </ul>
-<p><img src="images/polyline_no.png" alt="Пример"></p>
+
+</div>
+</div>
+</div>
+</aside></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Важно, что полилиния простая
+<img src="images/polyline_no.svg" alt="Ghbv" style="width: 500px;"/></p>
 
 </div>
 </div>
@@ -12479,7 +12783,9 @@ $\triangleleft$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#1040;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1072;">&#1040;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1072;">&#182;</a></h3><p>Очевидно, что этот алгоритм работает за линейное время от количества точек в исходной полилинии, поскольку каждая вершина будет обработана (добавлена и удалена) один раз.</p>
+<h3 id="&#1040;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1072;">&#1040;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1072;">&#182;</a></h3><ul>
+<li>Каждая вершина обрабатывается не более 1 раза $\Rightarrow O(n)$ </li>
+</ul>
 
 </div>
 </div>
@@ -12488,24 +12794,60 @@ $\triangleleft$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3><p>Но почему алгоритм вообще работает? Для того, чтобы объяснить это, для начала вспомним свойства выпуклой оболочки $D$ для простой полигональной цепи $P$.</p>
-<ol>
+<h3 id="&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3><p>Свойства выпуклой оболочки $D$ для простой полигональной цепи $P$:</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
 <li>$D$ выпуклая</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
 <li>$P$ содержится в  $D$</li>
-<li>Множество вершин, из которых состоит $D$ является подмножеством вершин полигональной цепи $P$ </li>
-</ol>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Множество вершин, из которых состоит $D$, является подмножеством вершин полигональной цепи $P$ </li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Инвариант:</p>
 <blockquote><p>Дек $ D=(d_b,d_{b+1},....d_{t-1},d_{t})$ при добавлении очередной вершины полилинии содержит в себе корректную выпуклую оболочку уже рассмотренных вершин<br></p>
 </blockquote>
 
 </div>
 </div>
-</div></section><section>
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Переход от дека $D$ к $\widetilde{D}$</p>
+<p>Переход от $D$ к $\widetilde{D}$</p>
 <ul>
 <li>Выпуклость сохраняется, т.к. убираем все вершины с некорректными поворотами </li>
 </ul>
@@ -12523,15 +12865,24 @@ $\triangleleft$</p>
 
 </div>
 </div>
-</div></div></section><section>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Пусть найдется точка $p_j$, не лежащая в $\widetilde{D}$, значит она лежит справа от ребра, проходящего через $p_i$ (т.к. все повороты с вершинами из $D$ остались левыми). Поэтому прямая-продолжение этого ребра пересекает оболочку в 2 точках, в которых разные знаки поворотов, в одной из них поворот левый, но мы удалили все вершины с левым поворотом. Противоречие.
-<img src="images/polyline_proof.svg" alt=""></li>
-</ul>
+<p>Пусть найдется точка $p_j$, не лежащая в $\widetilde{D}$, значит она лежит справа от ребра, проходящего через $p_i$ (т.к. все повороты с вершинами из $D$ остались левыми). 
+Прямая-продолжение этого ребра пересекает оболочку в 2 точках, в которых разные знаки поворотов, в одной из них поворот левый, но мы удалили все вершины с левым поворотом. Противоречие.</p>
+
+</div>
+</div>
+</div>
+</aside></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="images/polyline_proof.svg" alt=""></p>
 
 </div>
 </div>
@@ -12585,7 +12936,7 @@ require(
             progress: true,
             history: true,
 
-            transition: "slide",
+            transition: "none",
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
