@@ -38,14 +38,41 @@ def gen(n=10, max_coord=100):
 
 def is_convex(pts):
     n = len(pts)
+    cnt_left, cnt_right = 0, 0
     for i in range(n):
-        if turn(pts[i - 1], pts[i], pts[i + 1 - n]) == TURN_RIGHT:
-            return False
-    return True
+        t = turn(pts[i - 1], pts[i], pts[i + 1 - n])
+        if t == TURN_RIGHT:
+            cnt_right += 1
+        elif t == TURN_LEFT:
+            cnt_left += 1
+            # print(pts[i - 1])
+            # print(pts[i])
+            # print(pts[i + 1 - n])
+            # return False
+    return cnt_left == 0 or cnt_right == 0
 
 
-def visualize(pts, hull):
+def is_in_triangle(a, b, c, point):
+    # return abs(turn(a, b, point) + turn(b, c, point) + turn(c, a, point)) == 3
+    return is_in_polygon([a, b, c], point)
+
+
+def is_in_polygon(poly, point):
+    cnt_left, cnt_right = 0, 0
+    n = len(poly)
+    for i in range(n):
+        t = turn(poly[i], poly[i + 1 - n], point)
+        if t == TURN_LEFT:
+            cnt_left += 1
+        elif t == TURN_RIGHT:
+            cnt_right += 1
+    return cnt_left == 0 or cnt_right == 0
+
+
+def visualize(pts, hull, marked=[]):
     fig, ax = plt.subplots()
     ax.scatter([p[0] for p in pts], [p[1] for p in pts])
-    ax.plot([h[0] for h in hull], [h[1] for h in hull], 'go-')
+    ax.plot([h[0] for h in hull] + ([hull[0][0]] if hull else []),
+            [h[1] for h in hull] + ([hull[0][1]] if hull else []), 'go-')
+    ax.plot([m[0] for m in marked], [m[1] for m in marked], 'ro', lw=0)
     plt.show()
