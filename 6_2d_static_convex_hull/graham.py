@@ -7,10 +7,12 @@ from utils import *
 
 class GrahamVisualiser:
     def __init__(self, points=None, interval=1000):
+        self.data_current = [[], []]
         self.hull_x = []
         self.hull_y = []
         self.deleted_x = []
         self.deleted_y = []
+        self.current = None
         self.hull = None
         self.start = None
         self.ax = None
@@ -33,7 +35,8 @@ class GrahamVisualiser:
     def run(self, data):
         self.hull.set_data(self.hull_x, self.hull_y)
         self.deleted.set_data(self.deleted_x, self.deleted_y)
-        return self.hull, self.start, self.deleted
+        self.current.set_data(*self.data_current)
+        return self.hull, self.start, self.deleted, self.current
 
     def grahamscan(self):
         n = len(self.points)  # число точек
@@ -54,6 +57,11 @@ class GrahamVisualiser:
         self.hull_y.append(st[-1][1])
         yield None
         for i in range(1, n - 1):
+            self.data_current[0].clear()
+            self.data_current[1].clear()
+            self.data_current[0].append(self.points[i][0])
+            self.data_current[1].append(self.points[i][1])
+            yield None
             while len(st) >= 2 and turn(st[-2], st[-1], self.points[i]) == TURN_RIGHT:
                 del st[-1]  # pop(S)
                 self.deleted_x.append(self.hull_x.pop())
@@ -70,15 +78,23 @@ class GrahamVisualiser:
         self.hull_x.append(start[0])
         self.hull_y.append(start[1])
         yield None
+        self.data_current[0].clear()
+        self.data_current[1].clear()
+        yield None
 
     def visualise(self):
         fig, self.ax = plt.subplots()
+
         self.hull, = self.ax.plot([], [], 'o-', color='#00ff00', lw=3)
         self.ax.scatter([p[0] for p in self.points], [p[1] for p in self.points], color='black', lw=1)
         self.start, = self.ax.plot([], [], 'bo', lw=4)
         self.deleted, = self.ax.plot([], [], 'ro-', lw=3)
+        self.current, = self.ax.plot([], [], 'go', lw=3)
         ani = animation.FuncAnimation(fig, self.run, self.grahamscan, init_func=self.init,
                                       blit=True, repeat=False, interval=self.interval, save_count=1000)
+        # plt.draw()
+        # plt.show()
         return ani
 
 
+# GrahamVisualiser(points=gen()).visualise()

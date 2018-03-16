@@ -69,9 +69,12 @@ def is_in_polygon(poly, point):
     return cnt_left == 0 or cnt_right == 0
 
 
-def visualize(pts, hull, marked=[]):
+def visualize(pts, hull, marked=[], connect_points=False):
     fig, ax = plt.subplots()
-    ax.scatter([p[0] for p in pts], [p[1] for p in pts])
+    if connect_points:
+        ax.plot([p[0] for p in pts] + [pts[0][0]], [p[1] for p in pts] + [pts[0][1]])
+    else:
+        ax.scatter([p[0] for p in pts], [p[1] for p in pts])
     ax.plot([h[0] for h in hull] + ([hull[0][0]] if hull else []),
             [h[1] for h in hull] + ([hull[0][1]] if hull else []), 'go-')
     ax.plot([m[0] for m in marked], [m[1] for m in marked], 'ro', lw=0)
