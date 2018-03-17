@@ -85,11 +85,11 @@ class GrahamVisualiser:
     def visualise(self):
         fig, self.ax = plt.subplots()
 
-        self.hull, = self.ax.plot([], [], 'o-', color='#00ff00', lw=3)
+        self.hull, = self.ax.plot([], [], 'go-', lw=3)
         self.ax.scatter([p[0] for p in self.points], [p[1] for p in self.points], color='black', lw=1)
         self.start, = self.ax.plot([], [], 'bo', lw=4)
         self.deleted, = self.ax.plot([], [], 'ro-', lw=3)
-        self.current, = self.ax.plot([], [], 'go', lw=3)
+        self.current, = self.ax.plot([], [], 'o',  color='#00ff00', lw=3)
         ani = animation.FuncAnimation(fig, self.run, self.grahamscan, init_func=self.init,
                                       blit=True, repeat=False, interval=self.interval, save_count=1000)
         # plt.draw()
